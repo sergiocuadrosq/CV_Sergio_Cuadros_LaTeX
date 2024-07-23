@@ -1,0 +1,197 @@
+% Tipo de Documento
+\documentclass[11pt]{article}
+
+% Sobre el idioma y evitar que algunos carácteres no funcionen con filtros ATS
+\usepackage[spanish]{babel} % multilingual support
+\usepackage[utf8]{inputenc} % encoding
+\usepackage[T1]{fontenc}
+
+\usepackage[hidelinks]{hyperref}
+
+\usepackage{fontawesome5}
+
+
+% Fuentes
+%\usepackage[sfdefault]{noto}
+\usepackage{fbb}
+
+
+% Setting márgenes del documento
+\usepackage{geometry}
+\geometry{
+  a4paper,
+  left=15mm,
+  right=15mm,
+  bottom=15mm,
+  top=15mm}
+\pagestyle{empty}
+
+% Custom sectioning with secsty
+\usepackage{sectsty}
+
+\sectionfont{%                        
+    \large % make sections smaller
+    \sectionrule{0pt}{0pt}{-4pt}{0.5pt} % insert a thin rule
+}
+% ???
+\newlength{\spacebox}
+\settowidth{\spacebox}{123456789}
+% vertical space separator between entries
+\newcommand{\sepspace}{\vspace*{0.5em}}
+
+% Macro para el nombre 
+\newcommand{\name}[1]{
+\Huge % font size
+% print name centered and bold
+\begin{center} \textbf{#1} \end{center}\par
+% back to normal size and font
+\normalsize\normalfont}
+
+
+
+% personal information
+\newcommand{\info}[2]{
+% set specific indentation for personal information
+  \noindent\hangindent=2em\hangafter=0
+% create a box to align two pieces of text
+  \parbox{\spacebox}{%
+  \textsl{#1}} % slanted entry name
+  #2 \par} % entry value
+
+% skill
+% skill
+\newcommand{\skill}[2]{
+% set specific indentation for personal information
+\noindent\hangindent=2em\hangafter=0
+% create a box to align two pieces of text
+\parbox{3\spacebox}{% three times larger box
+\textsc{#1}} % small caps entry name
+#2 \par} % entry value
+
+
+
+
+
+
+
+% education entry
+\newcommand{\education}[6]{
+
+% Insertar nombre de estudios sin sangría
+  \noindent  \textbf{#1}
+  % Duración de los estudios (a la derecha)
+    \hfill 
+    {\textbf{#2}} 
+    \par
+ % new paragraph with the school in italics
+     \noindent {#3}
+     % description with no hanging and in smaller text
+     \vspace*{0.5em} \hfill{{#4}}
+     \par
+     \vspace{-0.5em}
+%back to normal size
+\normalsize \par}
+
+
+
+
+% work experience
+\newcommand{\work}[4]{
+% name of the work
+  \noindent  \textbf{#1}
+% at the right the duration
+  \hfill {\textbf{#2}} \par
+% new paragraph with the school in italics
+  \noindent \textit{#3} \par
+% description with no hanging and in smaller text
+  \vspace*{0.5em}
+  \noindent\hangindent=2em\hangafter=0 \small #4 
+%back to normal size
+\normalsize \par}
+
+% voluntariado
+\newcommand{\volunt}[7]{
+\noindent \textbf{#1} \par
+
+\noindent \textit{#2}
+\hfill {\textbf{#3}} \par
+\vspace*{0.5em}
+  \noindent\hangindent=2em\hangafter=0 \small #4 
+  \sepspace
+
+\noindent \textit{#5}
+\hfill {\textbf{#6}} \par
+\vspace*{0.5em}
+  \noindent\hangindent=2em\hangafter=0 \small #7 
+
+\normalsize \par}
+
+\newcommand{\lan}[2]{
+    % set specific indentation for personal information
+    \noindent\hangindent=2em\hangafter=0
+    % create a box to align two pieces of text
+    \parbox{6\spacebox}{%
+        {#1}} % bold font entry name
+     \textsl{#2} \par}    % entry value
+% ----------------------------------------------------------- %
+\begin{document}
+
+
+
+\name{\scshape Sergio Caleb Cuadros Quezada}
+
+\begin{center}    
+    \vspace{-5pt}
+    \small
+    \faIcon{map-marker-alt}
+    {Lima, Perú} $  $
+    \faIcon{phone}
+    {{923399951}} $  $
+    \faIcon{linkedin}
+    \href{https://www.linkedin.com/in/sergiocuadrosquezada//}{{LinkedIn}} $  $
+    \faIcon{envelope}
+    {{s.cuadros@pucp.edu.pe}}
+\end{center}
+
+\section*{Sobre mí}
+
+\noindent Estudiante de Economía que cursa el octavo ciclo en la Pontificia Universidad Católica del Perú. Con interés en áreas analíticas en estudios estadísticos y tratamiento de información.  Facilidad y entusiasmo por el uso de software para análisis de datos y programación. Posee un nivel de inglés avanzado.
+\vspace{-0.5em}
+
+\section*{Educaci\'on}
+\education{Bachiller en Econom\'ia (en octavo ciclo)}{setiembre 2020 -- julio 2025}{Pontificia Universidad Cat\'olica  del Per\'u}{\textsl{(tercio superior) (beca Pronabec)}}
+
+
+
+
+\section*{Habilidades técnicas}
+\skill{Software}{Excel \textsl{(avanzado)}, Power BI \textsl{(intermedio)}, Stata \textsl{(intermedio)}, Bloomberg.}
+\skill{Lenguajes de programación}{R \textsl{(intermedio)}, Python \textsl{(intermedio)}.}
+\skill{Idiomas}{Ingl\'es \textsl{(avanzado)} , {Español \textsl{(nativo)}.}}
+
+
+
+\section*{Experiencia}
+\work{Food Service Attendant}{diciembre 2023 – marzo 2024}{Sea World Orlando}{Particip\'e de un programa de intercambio cultural en Estados Unidos en la temporada de verano. Comunicaci\'on en ingl\'es.}
+
+\sepspace
+
+\work{Auxiliar Administrativo}{enero 2023 – marzo 2023}{Pontificia Universidad Cat\'olica  del Per\'u}{Realic\'e funciones administrativas para asegurar el funcionamiento eficiente de clases en el campus. Particip\'e en el proyecto
+de implementaci\'on de un nuevo sistema para la asignaci\'on de aulas.}
+
+\section*{Actividades extracurriculares}
+
+\volunt{Revista Econ\'omica}{Subdirector general}{marzo 2023 – agosto 2023}{Dirigimos un grupo de m\'as de cincuenta estudiantes hacia un correcto desarrollo de la organizaci\'on. Replanteamos las metas de investigaci\'on y publicaci\'on de la revista.}{Director del \'Area de Eventos y Relaciones Institucionales}{setiembre 2022 – marzo 2023}{Particip\'e en la direcci\'on, producci\'on y edici\'on de entrevistas a profesores PUCP en el canal de YouTube de la revista. Dirig\'i las acciones de un grupo de siete personas, as\'i como delegu\'e las actividades requeridas por el \'area. Tambi\'en renov\'e la l\'inea gr\'afica de las entrevistas del canal con edici\'on en software m\'as avanzado y con correcciones de audio y video para obtener mejores resultados.}
+
+
+\section*{Cursos y Certificaciones}
+\lan{Curso de Excel Avanzado: Macros}{Infopuc}
+\lan{Laboratorio de programaci\'on: R y Python}{Facultad de Ciencias Sociales PUCP}
+\lan{Fundamentos de Power BI}{Santander Open Academy}
+\lan{Power BI: intermedio/avanzado}{Zegel Virtual}
+\lan{SQL - Base de datos 1 (en curso)}{UNI}
+
+
+\end{document}
+
+
